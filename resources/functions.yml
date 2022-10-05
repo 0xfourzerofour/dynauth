@@ -1,8 +1,45 @@
 #lambda functions
 
-BasicLogin:
-  handler: handlers/basic-login/main.go
+token:
+  handler: src/handler.token
   events:
     - httpApi:
+        path: oauth/token
         method: POST
-        path: /login
+
+authorize:
+  handler: src/handler.authorize
+  events:
+    - httpApi:
+        path: oauth/authorize
+        method: GET
+
+providers:
+  handler: src/handler.providers
+  events:
+    - httpApi:
+        path: providers/{providerId}
+        method: GET
+        parameters:
+            paths:
+              providerId: true
+
+callback:
+  handler: src/handler.callback
+  events:
+    - httpApi:
+        path: callback/{providerId}
+        method: GET
+        parameters:
+            paths:
+              providerId: true
+        
+login:
+  handler: src/handler.login
+  events:
+    - httpApi:
+        path: login
+        method: POST
+    - http:
+        path: login
+        method: GET
