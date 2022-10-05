@@ -1,0 +1,15 @@
+service: dynauth
+
+provider:
+  name: aws
+  stage: ${opt:stage, us-west-1}
+  region: ${opt:region, us-west-1}
+  tracing:
+    apiGateway: true
+    lambda: true
+
+functions:
+  - ${file(resources/functions.yml)}
+
+resources:
+  - ${file(resources/database.yml)}
