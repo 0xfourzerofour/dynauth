@@ -24,14 +24,12 @@ type ClientAllowedURI struct {
 	ID       int64
 	URI      string
 	ClientID int64
-	//Super    bool
 }
 
 type ClientRole struct {
 	ID       int64
 	Role     string
 	ClientID int64
-	//Super    bool
 }
 
 type ClientScope struct {
@@ -64,7 +62,6 @@ type AccessToken struct {
 	Expires        time.Time
 	RefreshTokenID int64
 }
-
 
 type AuthorizationCode struct {
 	AuthorizationCode int64
@@ -101,7 +98,6 @@ type ImplicitGrant struct {
 	AccessTokenID int64
 	Scope         string
 }
-
 
 type ImplicitScope struct {
 	ID              int64
