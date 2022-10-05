@@ -1,8 +1,8 @@
 #lambda functions
 
 BasicLogin:
-	handler: handlers/login-basic/main.go
-    events:
-      - httpApi:
-          method: POST
-          path: /login
+  handler: handlers/basic-login/main.go
+  events:
+    - httpApi:
+        method: POST
+        path: /login
